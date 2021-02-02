@@ -248,3 +248,8 @@ body {
   padding-right: 30px;
   box-sizing: border-box;
 }
+
+.load h3,
+.save h3 {
+  color: #4ad298;
+}
