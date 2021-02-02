@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  background-color: #f5f6f8;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+}
+
+.main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+.configuration {
+  width: 30vw;
+  padding: 5vh;
+}
+
+.content {
+  /*background-color: blue;*/
+  width: 70vw;
+}
+
+.section {
+  width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+  padding: 20px;
+  margin-bottom: 10px;
+
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 3px 6px #b8c0c016;
+}
+
+.datasets {
+  display: flex;
+  flex-wrap: wrap;
+  color: #b1b1b3;
+
+  margin-left: -5px;
+  margin-right: -5px;
+  margin-top: 20px;
+}
+
+.checkbox {
+  display: flex;
+  flex: 1;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  padding: 10px 16px;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #d7d7d8;
+  width: fit-content;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.checkbox p {
+  margin-left: 1ch;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+}
+
+.checkmark {
+  position: relative;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: white;
+  border: 2px solid #d7d7d8;
+  border-radius: 50px;
+}
+
+.checkbox:hover {
+  border-color: #c9c9c9;
+  background-color: #d7d7d828;
+}
+
+.checkbox:hover input ~ .checkmark {
+  border-color: #c9c9c9;
+}
+
+.checkbox input:checked ~ .checkmark {
+  border: 5px solid #4ad298;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+}
+
+.checkbox input:checked ~ p {
+  color: #4ad298;
+}
+
+.active {
+  background-color: #e8f8f2 !important;
+  border-color: #4ad298 !important;
+}
+
+.upload-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.upload-area > p {
+  padding: 0px 10px;
+}
+
+.upload-el {
+  width: fit-content;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  flex-grow: 1;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.upload-drag {
+  border-color: #d4d4d5;
+  background-color: #fafafb;
+  color: #c0c0c0;
+}
+
+.upload-browse {
+  border-color: #4ad298;
+  color: #4ad298;
+}
+
+.model {
+  width: 100%;
+}
+
+.buttons {
+  display: flex;
+  margin: 0px -5px 0px -5px;
+}
+
+.button {
+  flex-shrink: 1;
+  flex-grow: 1;
+  background-color: white;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 15px;
+  box-shadow: 0px 2px 6px #b1b1b369;
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.buttons input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+  border: 1.5px solid #d4d4d5;
+  border-radius: 3px;
+}
+
+.buttons button {
+  color: white;
+  background-color: #4ad298;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  padding: 3px;
+  position: absolute;
+  transform: translate(calc(-100% - 3px), 3.5px);
+}
+
+.buttons p {
+  font-size: 10px;
+  text-align: center;
+  color: grey;
+  margin: 5px 0px;
+}
+
+.buttons h3 {
+  font-size: 16px;
+}
+
+.start {
+  background-color: #4ad298;
+  justify-content: center;
+}
+
+.start button {
+  transform: unset;
+  position: unset;
+
+  background-color: white;
+  color: #4ad298;
+  padding: 10px 10px;
+}
+
+.load {
+  background-image: url("gray-triangle.svg");
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  background-position: 130% 130%;
+  background-size: 60%;
+}
+
+.save {
+  background-image: url("gray-curve.svg");
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  background-position: -20% 130%;
+  background-size: 50%;
+}
+
+.start {
+  background-image: url("triangle-green.svg");
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  background-position: -30% -30%;
+  background-size: 70%;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 30px;
+  box-sizing: border-box;
+}

@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'index.css' %}" />
+    <link rel="stylesheet" href="{% static 'dist/virtual-select.min.css' %}" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="configuration">
+        <!--DATASET-->
+        <div class="dataset section">
+          <h2>Dataset selection</h2>
+          <p>
+            Select all datasets which you would like to test the models on or
+            upload your own below.
+          </p>
+
+          <div class="datasets">
+            {% for dataset in datasets %}
+            <label class="checkbox">
+              <input type="checkbox" onclick="check(this);" />
+              <span class="checkmark"></span>
+              <p>{{dataset.name}}</p>
+            </label>
+            {% endfor %}
+            <label class="checkbox">
+              <input type="checkbox" onclick="check(this);" />
+              <span class="checkmark"></span>
+              <p>UCY (University)</p>
+            </label>
+          </div>
+
+          <h3 style="margin: 20px 0px 15px 0px">Import your own</h3>
+
+          <div class="upload-area">
+            <div class="upload-drag upload-el">Drag and drop file here</div>
+            <p>or</p>
+            <div class="upload-browse upload-el">Browse Computer</div>
+          </div>
+        </div>
+
+        <!--MODEL SECTION-->
+        <div class="model section">
+          <h2>Model selection</h2>
+          <p style="margin-bottom: 20px">
+            Choose any models which you would like to compare or import your
+            own.
+          </p>
+          <div id="multimodel"></div>
+          <h3 style="margin: 20px 0px 15px 0px">Import your own</h3>
+
+          <div class="upload-area">
+            <div class="upload-drag upload-el">Drag and drop file here</div>
+            <p>or</p>
+            <div class="upload-browse upload-el">Browse Computer</div>
+          </div>
+        </div>
+
+        <!--TESTING SECTION-->
+        <div class="testing section">
+          <h2>Testing configuration</h2>
+          <p style="margin-bottom: 20px">
+            Choose the test configuration. This will reflect on the details,
+            specifics and format of the outputted results.
+          </p>
+          <div id="multiconfig"></div>
+        </div>
+
+        <!--BUTTONS-->
+        <div class="buttons">
+          <div class="button save">
+            <img src="{% static 'save-icon.svg' %} " alt="" />
+            <h3>Save Settings</h3>
+            <p>settings code will be sent to your email</p>
+            <form action="">
+              <input type="email" name="email" placeholder="Your Email" />
+              <button>Send</button>
+            </form>
+          </div>
+
+          <div class="button load">
+            <img src="{% static 'cog-green.svg' %} " alt="" />
+            <h3>Load Settings</h3>
+            <p>type in the configuration code from email</p>
+            <form action="">
+              <input type="text" name="code" placeholder="Your Email" />
+              <button>Load</button>
+            </form>
+          </div>
+
+          <div class="button start">
+            <img src="{% static 'cog-white.svg' %} " alt="" />
+            <button>Start Analysis</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+            <img src="{% static 'no-selection.svg' %} " alt="" />
+      </div>
+    </div>
+    <script src="{% static 'dist/virtual-select.min.js' %}"></script>
+    <script>
+      function check(el) {
+        if (el.checked) {
+          el.parentElement.classList.add("active");
+        } else {
+          el.parentElement.classList.remove("active");
+        }
+      }
+
+      var Options = [
+        { label: "LSTM", value: "lstm" },
+        { label: "Social LSTM", value: "sociallstm" },
+        { label: "Scene LSTM", value: "scenelstm" },
+        { label: "Combined", value: "combined" },
+      ];
+
+      var ConfigOptions = [
+        { label: "Qualitative Analysis", value: "fullqual" },
+        { label: "Quantitative Analysis", value: "fullquant" },
+        { label: "Runtime Comparison Only", value: "runtime" },
+        { label: "ADE Comparison Only", value: "ade" },
+      ];
+
+      VirtualSelect.init({
+        ele: "#multimodel",
+        options: Options,
+        multiple: true,
+      });
+
+      VirtualSelect.init({
+        ele: "#multiconfig",
+        options: ConfigOptions,
+        multiple: false,
+      });
+    </script>
+  </body>
+</html>
